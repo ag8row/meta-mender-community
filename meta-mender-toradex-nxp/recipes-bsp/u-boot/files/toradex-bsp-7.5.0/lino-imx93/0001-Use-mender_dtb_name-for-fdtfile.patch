@@ -1,0 +1,30 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Alexander Gurov <alexander.gurov@konsulko.com>
+Date: Fri, 11 Nov 2022 11:47:46 -0500
+Subject: [PATCH] lino-imx93: Use mender_dtb_name for fdtfile.
+
+We use preboot to unconditionally set the value of fdtfile to
+mender_dtb_name.  This is more consistent with how Mender is
+expected to handle DTB names when using Yocto.
+
+Changelog: Title
+Signed-off-by: Alexander Gurov <alexander.gurov@konsulko.com>
+---
+ configs/lino-imx93_defconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configs/lino-imx93_defconfig b/configs/lino-imx93_defconfig
+--- a/configs/lino-imx93_defconfig
++++ b/configs/lino-imx93_defconfig
+@@ -36,7 +36,7 @@ CONFIG_USE_PREBOOT=y
+ CONFIG_OF_SYSTEM_SETUP=y
+ CONFIG_BOOTCOMMAND="bootflow scan -b"
+ CONFIG_USE_PREBOOT=y
+-CONFIG_PREBOOT="test -n ${fdtfile} || setenv fdtfile imx93-lino-${fdt_board}.dtb"
++CONFIG_PREBOOT="setenv fdtfile ${mender_dtb_name}"
+ CONFIG_SYS_CBSIZE=2048
+ CONFIG_SYS_PBSIZE=2074
+ CONFIG_LOG=y
+--
+2.38.1
+

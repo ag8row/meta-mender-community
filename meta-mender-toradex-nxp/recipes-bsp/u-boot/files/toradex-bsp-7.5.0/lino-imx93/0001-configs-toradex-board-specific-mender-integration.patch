@@ -1,0 +1,39 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Alexander Gurov <alexander.gurov@konsulko.com>
+Date: Fri, 10 Jun 2022 14:22:11 +0000
+Subject: [PATCH] configs: lino-imx93: mender integration
+
+Apply configuration changes for Mender.
+
+Signed-off-by: Alexander Gurov <alexander.gurov@konsulko.com>
+---
+ configs/lino-imx93_defconfig | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/configs/lino-imx93_defconfig b/configs/lino-imx93_defconfig
+--- a/configs/lino-imx93_defconfig
++++ b/configs/lino-imx93_defconfig
+@@ -9,7 +9,9 @@ CONFIG_NR_DRAM_BANKS=2
+ CONFIG_NR_DRAM_BANKS=2
+ CONFIG_ENV_SOURCE_FILE="lino.env"
+-CONFIG_ENV_SIZE=0x2000
+-CONFIG_ENV_OFFSET=0xFFFFDE00
++CONFIG_ENV_SIZE=0x4000
++CONFIG_ENV_OFFSET=0x800000
++CONFIG_ENV_OFFSET_REDUND=0x1000000
++CONFIG_SYS_REDUNDAND_ENVIRONMENT=y
+ CONFIG_DM_GPIO=y
+ CONFIG_DEFAULT_DEVICE_TREE="imx93-lino-verdin-dev"
+ CONFIG_SPL_TEXT_BASE=0x2049A000
+@@ -86,7 +88,7 @@ CONFIG_ENV_OVERWRITE=y
+ CONFIG_ENV_OVERWRITE=y
+ CONFIG_ENV_IS_IN_MMC=y
+ CONFIG_SYS_RELOC_GD_ENV_ADDR=y
+-CONFIG_SYS_MMC_ENV_PART=1
++CONFIG_SYS_MMC_ENV_PART=0
+ CONFIG_USE_ETHPRIME=y
+ CONFIG_ETHPRIME="eth0"
+ CONFIG_VERSION_VARIABLE=y
+--
+2.38.1
+
