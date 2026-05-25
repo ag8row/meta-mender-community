@@ -23,3 +23,6 @@ SRC_URI:append:mender-uboot:colibri-imx6ull = " \
 # Use the Toradex specific version of this patch
 SRC_URI:remove:mender-uboot = " file://0003-Integration-of-Mender-boot-code-into-U-Boot.patch "
 SRC_URI:append:mender-uboot = " file://0001-Integration-of-Mender-boot-code-into-toradex-U-Boot.patch "
+# BSP 7.5.0 uses U-Boot 2024.04/2024.07 which already has the Mender boot code
+# integrated upstream — applying the patch would fail as a reverse-apply
+SRC_URI:remove:mender-uboot:toradex-bsp-7.5.0 = " file://0001-Integration-of-Mender-boot-code-into-toradex-U-Boot.patch "
