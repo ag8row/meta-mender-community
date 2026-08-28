@@ -29,6 +29,15 @@ OFFSET_SPL_PAYLOAD:verdin-imx8mm = ""
 KERNEL_DEVICETREE:verdin-imx8mm = "freescale/imx8mm-verdin-wifi-dahlia.dtb"
 
 #
+# Settings for lino-imx93
+#
+MENDER_BOOT_PART_SIZE_MB:lino-imx93 = "32"
+OFFSET_SPL_PAYLOAD:lino-imx93 = ""
+MENDER_IMAGE_BOOTLOADER_BOOTSECTOR_OFFSET:lino-imx93 = "0"
+MENDER_STORAGE_TOTAL_SIZE_MB:lino-imx93 = "2048"
+KERNEL_DEVICETREE:lino-imx93 = "freescale/imx93-lino-verdin-dev.dtb"
+
+#
 # Settings for verdin-imx8mp
 #
 MENDER_BOOT_PART_SIZE_MB:verdin-imx8mp = "32"
